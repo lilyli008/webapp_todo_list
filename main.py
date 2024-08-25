@@ -24,11 +24,11 @@ if st.button("Remove Selected "):
     for item in items_to_remove:
         todos.remove(item)
     function.write_todos(todos)
-    st.experimental_rerun()
+    st.rerun()
 
 st.text_input(label="Enter to-do item",placeholder='add new todo...',key='new_todo', on_change=add_todo)
 
 if st.button("Add Item") and st.session_state["new_todo"]!="":
     add_todo()
-    st.experimental_rerun()
+    st.rerun()
 #st.session_state
