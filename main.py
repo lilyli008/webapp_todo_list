@@ -11,7 +11,16 @@ def add_todo():
 
 st.title("My to-do list")
 st.subheader("This is my todo app.")
-st.write("This app is to increase your productivity.")
+st.write("This app is to increase your <b>productivity.</b>",unsafe_allow_html=True)
+
+col1,col2=st.columns([3,1])
+with col1:
+    st.text_input(label='\u200B',placeholder='add new todo...',key='new_todo', on_change=add_todo)
+
+with col2:
+    if st.button("Add Item") and st.session_state["new_todo"]!="":
+        add_todo()
+        st.rerun()
 
 checkbox={}
 for index,todo in enumerate(todos):
@@ -26,9 +35,5 @@ if st.button("Remove Selected "):
     function.write_todos(todos)
     st.rerun()
 
-st.text_input(label="Enter to-do item",placeholder='add new todo...',key='new_todo', on_change=add_todo)
 
-if st.button("Add Item") and st.session_state["new_todo"]!="":
-    add_todo()
-    st.rerun()
 #st.session_state
