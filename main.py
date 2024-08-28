@@ -15,7 +15,7 @@ st.write("This app is to increase your <b>productivity.</b>",unsafe_allow_html=T
 
 col1,col2=st.columns([3,1])
 with col1:
-    st.text_input(label='\u200B',placeholder='add new todo...',key='new_todo', on_change=add_todo)
+    st.text_input(label='',placeholder='add new todo...',key='new_todo', on_change=add_todo)
 
 with col2:
     if st.button("Add Item") and st.session_state["new_todo"]!="":
